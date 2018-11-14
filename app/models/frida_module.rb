@@ -1,0 +1,2 @@
+class FridaModule < ApplicationRecord
+end

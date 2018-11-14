@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @frida_module.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @frida_module.description %>
+</p>
+
+<p>
+  <strong>Video link:</strong>
+  <%= @frida_module.video_link %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @frida_module.image %>
+</p>
+
+<p>
+  <strong>Content file:</strong>
+  <%= @frida_module.content_file %>
+</p>
+
+<p>
+  <strong>Limit date:</strong>
+  <%= @frida_module.limit_date %>
+</p>
+
+<%= link_to 'Edit', edit_frida_module_path(@frida_module) %> |
+<%= link_to 'Back', frida_modules_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id module:</strong>
+  <%= @deliver.id_module %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= @deliver.file %>
+</p>
+
+<p>
+  <strong>Id team:</strong>
+  <%= @deliver.id_team %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @deliver.grade %>
+</p>
+
+<%= link_to 'Edit', edit_deliver_path(@deliver) %> |
+<%= link_to 'Back', delivers_path %>
