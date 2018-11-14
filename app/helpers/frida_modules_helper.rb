@@ -1,0 +1,2 @@
+module FridaModulesHelper
+end
