@@ -1,0 +1,10 @@
+.container-fluid.main
+  .row.main
+    .col-md-5.col-sm-12.izquierda
+      .container
+        %img.mx-auto{:src=>'../../assets/images/logo.png'}
+        %form#form-registro
+          = link_to 'Frida', new_frida_session_path, :class => 'btn btn-outline-info btn-lg btn-block'
+          = link_to 'Mentor', new_mentor_session_path, :class => 'btn btn-outline-info btn-lg btn-block'
+          / = link_to 'Líder', new_leader_session_path, :class => 'btn btn-outline-info btn-lg btn-block'
+    .col-md-7.d-none.d-md-block.derecha
