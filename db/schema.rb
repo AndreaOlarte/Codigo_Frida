@@ -84,11 +84,6 @@ ActiveRecord::Schema.define(version: 2018_11_21_072924) do
     t.index ["reset_password_token"], name: "index_fridas_on_reset_password_token", unique: true
   end
 
-  create_table "leads", force: :cascade do |t|
-    t.string "user"
-    t.string "password"
-  end
-
   create_table "mentors", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
