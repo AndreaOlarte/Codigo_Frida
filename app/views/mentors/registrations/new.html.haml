@@ -1,0 +1,63 @@
+%h2 Sign up-Mentor
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name, autofocus: true, autocomplete: 'name'
+  
+  .field
+    = f.label :last_name
+    %br
+    = f.text_field :last_name, autofocus: true, autocomplete: 'last_name'
+  
+  .field
+    = f.label :birthdate
+    %br
+    = f.date_field :birthdate, autofocus: true, autocomplete: 'birthdate'
+  
+  .field
+    = f.label :company
+    %br
+    = f.text_field :company, autofocus: true, autocomplete: 'company'
+
+  .field
+    = f.label :expertise
+    %br
+    / = f.wea_field :expertise, autofocus: true, autocomplete: 'expertise'
+    = f.select :expertise, ['Físico Matemático y Ciencias de la Tierra', 'option2'], autofocus: true, autocomplete: 'expertise'
+
+  .field
+    = f.label :avatar
+    %br
+    = f.file_field :avatar
+
+  .field
+    = f.label :email
+    %br
+    = f.email_field :email, autofocus: true, autocomplete: 'email'
+
+  .field
+    = f.label :phone
+    %br
+    = f.text_field :phone, autofocus: true, autocomplete: 'phone'
+
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em 
+        = "#{@minimum_password_length} characters minimum"
+    %br
+    = f.password_field :password, autocomplete: 'new-password'
+
+  .field
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation, autocomplete: 'new-password'
+
+  .actions
+    = f.submit 'Sign up'
+
+= render "mentors/shared/links"
