@@ -1,10 +1,10 @@
-class Frida < ApplicationRecord
+class Leader < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  belongs_to :team
+  
+  has_many :feedbacks
 
   has_one_attached :avatar
 end

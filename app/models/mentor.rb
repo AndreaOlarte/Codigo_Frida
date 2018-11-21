@@ -6,4 +6,6 @@ class Mentor < ApplicationRecord
 
   has_many :teams
   has_many :feedbacks
+
+  has_one_attached :avatar
 end
