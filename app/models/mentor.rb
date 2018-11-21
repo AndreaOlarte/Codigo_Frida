@@ -3,4 +3,7 @@ class Mentor < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :teams
+  has_many :feedbacks
 end
