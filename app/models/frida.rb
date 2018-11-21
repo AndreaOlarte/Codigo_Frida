@@ -5,4 +5,6 @@ class Frida < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :team
+
+  has_one_attached :avatar
 end
