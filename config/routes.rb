@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   devise_for :mentors, path: 'mentors', controllers: { sessions: 'mentors/sessions' }
   devise_for :fridas, path: 'fridas', controllers: { sessions: 'fridas/sessions' }
+  devise_for :leaders, path: 'leaders', controllers: { sessions: 'leaders/sessions' }
   resources :tests
   resources :feedbacks
   resources :teams
