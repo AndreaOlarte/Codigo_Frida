@@ -1,57 +1,100 @@
-%h2 Sign up-Fridas
+.container-fluid
+  .row.main
+    .col-md-3.d-none.d-md-block.izquierda
+      %img{:src=>"../../assets/images/tcm.jpg"}
+    .col-md-9.col-sm-12.derecha
+      .container
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'form-registro', class: 'd-flex flex-wrap'}) do |f|
+          = devise_error_messages!
+          .field.form-group.w-50
+            = f.label :name, '* Nombre(s)'
+            = f.text_field :name, placeholder: 'Inserte nombre(s)', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :last_name, '* Apellido(s)'
+            = f.text_field :last_name, placeholder: 'Inserte apellido(s)', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :email, '* Correo electrónico'
+            = f.email_field :email, placeholder: 'Inserte correo electrónico', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :birthdate, '* Fecha de nacimiento'
+            = f.date_field :birthdate, class: 'form-control'
+          .field.form-group.w-50
+            = f.label :password, '* Contraseña'
+            - if @minimum_password_length
+              %em 
+                = "#{@minimum_password_length} characters minimum"
+            = f.password_field :password, placeholder: 'Inserte su contraseña', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :password_confirmation, '* Contraseña'
+            - if @minimum_password_length
+              %em 
+                = "#{@minimum_password_length} characters minimum"
+            = f.password_field :password_confirmation, placeholder: 'Inserte nuevamente la contraseña', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :school, '* Escuela / Institución'
+            = f.text_field :school, placeholder: 'Inserte su escuela de procedencia', class: 'form-control'
+          -# .field.form-group.w-50
+          -#   = f.label :phone, '* Celular'
+          -#   = f.telephone_field(:frida, :phone)
+            -# placeholder: 'Inserte su número de celular', class: 'form-control' ...
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
+          .field.form-group.w-50
+            %label * Equipo
+            %br
+            .d-flex.flex-wrap
+              .form-check.form-check-inline.m-0
+                %input#yaTengoEquipo.form-check-input.d-none{:checked => "checked", :name => "radioEquipo", :type => "radio", :value => "option1"}/
+                %label#labelYaTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "yaTengoEquipo"}
+                  Ya tengo un Equipo
+              .form-check.form-check-inline.m-0
+                %input#crearEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option2"}
+                %label#labelCrear.form-check-label.btn.btn-sm.btn-outline-info{:for => "crearEquipo"}
+                  Crear Equipo
+              .form-check.form-check-inline.m-0
+                %input#noTengoEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option3"}
+                %label#labelNoTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "noTengoEquipo"}
+                  No tengo equipo
+            #ingresarCodigo.form-group.w-50.w-100.mt-4
+              %label Ingresa código del equipo
+              %input.form-control{:placeholder => "Inserte código", :type => "text"}
+            #nombreEquipo.form-group.w-50.w-100.mt-4
+              %label Ingresa el nombre del equipo
+              %input.form-control{:placeholder => "Inserte nombre", :type => "text"}
 
-  .field
-    = f.label :name
-    %br
-    = f.text_field :name, autofocus: true, autocomplete: 'name'
+          .field.form-group.w-50.foto
+            = f.label :avatar, '* Foto'
+            %button#btnUpload.btn.btn-outline-info.btn-lg.btn-block{type: 'button'} Selecciona una imagen
+            = f.file_field :avatar, class: "form-control-file text-dark d-none", id: 'imgUpload', accept: '.jpg, .jpeg, .png'
+            %p#archivoSeleccionado.text-dark.mt-2 Ninguna imagen seleccionada
+          .actions.form-group.w-50.ml-auto.pb-0.form-registrar
+            = f.submit 'Registrarme', :id => 'registrarme', :class => 'btn btn-info btn-lg btn-block w-100' #, :data-toggle => 'modal', :data-target => '#modal1'
+
+
   
-  .field
-    = f.label :last_name
-    %br
-    = f.text_field :last_name, autofocus: true, autocomplete: 'last_name'
+  -# .field
+  -#   = f.label :phone
+  -#   %br
+  -#   = f.text_field :phone, autofocus: true, autocomplete: 'phone'
+
+  -# .field
+  -#   = f.label :password
+  -#   - if @minimum_password_length
+  -#     %em 
+  -#       = "#{@minimum_password_length} characters minimum"
+  -#   %br
+  -#   = f.password_field :password, autocomplete: 'new-password'
+
+  -# .field
+  -#   = f.label :password_confirmation
+  -#   %br
+  -#   = f.password_field :password_confirmation, autocomplete: 'new-password'
   
-  .field
-    = f.label :birthdate
-    %br
-    = f.date_field :birthdate, autofocus: true, autocomplete: 'birthdate'
-  
-  .field
-    = f.label :school
-    %br
-    = f.text_field :school, autofocus: true, autocomplete: 'school'
-  
-  .field
-    = f.label :email
-    %br
-    = f.email_field :email, autofocus: true, autocomplete: 'email'
+  -# .field
+  -#   = f.label :avatar
+  -#   %br
+  -#   = f.file_field :avatar
 
-  .field
-    = f.label :phone
-    %br
-    = f.text_field :phone, autofocus: true, autocomplete: 'phone'
+  -# .actions
+  -#   = f.submit 'Sign up'
 
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em 
-        = "#{@minimum_password_length} characters minimum"
-    %br
-    = f.password_field :password, autocomplete: 'new-password'
-
-  .field
-    = f.label :password_confirmation
-    %br
-    = f.password_field :password_confirmation, autocomplete: 'new-password'
-  
-  .field
-    = f.label :avatar
-    %br
-    = f.file_field :avatar
-
-  .actions
-    = f.submit 'Sign up'
-
-= render 'fridas/shared/links'
+      = render 'fridas/shared/links'
