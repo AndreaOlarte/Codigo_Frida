@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  belongs to :mentor
+  belongs_to :mentor, optional: true
   has_many :deliveries #?
   has_many :fridas
 end

@@ -1,7 +1,10 @@
+- content_for :javascript_includes do
+  = javascript_include_tag "registroFridas.js"
 .container-fluid
   .row.main
     .col-md-3.d-none.d-md-block.izquierda
-      %img{:src=>"../../assets/images/tcm.jpg"}
+      = image_tag("tcm.jpg", :alt => "rss feed")
+      -# %img{:src=>"../../assets/images/tcm.jpg"}
     .col-md-9.col-sm-12.derecha
       .container
         = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'form-registro', class: 'd-flex flex-wrap'}) do |f|
@@ -36,24 +39,24 @@
           -# .field.form-group.w-50
           -#   = f.label :phone, '* Celular'
           -#   = f.telephone_field(:frida, :phone)
-            -# placeholder: 'Inserte su número de celular', class: 'form-control' ...
+            -# placeholder: 'Inserte su número de celular', class: 'form-control', id: 'cel' ...
 
           .field.form-group.w-50
             %label * Equipo
             %br
             .d-flex.flex-wrap
-              .form-check.form-check-inline.m-0
-                %input#yaTengoEquipo.form-check-input.d-none{:checked => "checked", :name => "radioEquipo", :type => "radio", :value => "option1"}/
-                %label#labelYaTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "yaTengoEquipo"}
-                  Ya tengo un Equipo
-              .form-check.form-check-inline.m-0
-                %input#crearEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option2"}
-                %label#labelCrear.form-check-label.btn.btn-sm.btn-outline-info{:for => "crearEquipo"}
-                  Crear Equipo
-              .form-check.form-check-inline.m-0
-                %input#noTengoEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option3"}
-                %label#labelNoTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "noTengoEquipo"}
-                  No tengo equipo
+              -# .form-check.form-check-inline.m-0
+              -#   %input#yaTengoEquipo.form-check-input.d-none{:checked => "checked", :name => "radioEquipo", :type => "radio", :value => "option1"}/
+              -#   %label#labelYaTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "yaTengoEquipo"}
+              -#     Ya tengo un Equipo
+              -# .form-check.form-check-inline.m-0
+              -#   %input#crearEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option2"}
+              -#   %label#labelCrear.form-check-label.btn.btn-sm.btn-outline-info{:for => "crearEquipo"}
+              -#     Crear Equipo
+              -# .form-check.form-check-inline.m-0
+              -#   %input#noTengoEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option3"}
+              -#   %label#labelNoTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "noTengoEquipo"}
+              -#     No tengo equipo
             #ingresarCodigo.form-group.w-50.w-100.mt-4
               %label Ingresa código del equipo
               %input.form-control{:placeholder => "Inserte código", :type => "text"}
@@ -69,8 +72,31 @@
           .actions.form-group.w-50.ml-auto.pb-0.form-registrar
             = f.submit 'Registrarme', :id => 'registrarme', :class => 'btn btn-info btn-lg btn-block w-100' #, :data-toggle => 'modal', :data-target => '#modal1'
 
+        #modal1.modal.fade.text-dark{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog.modal-dialog-centered{:role => "document"}
+            .modal-content
+              .modal-header
+                %h5#exampleModalLabel.modal-title Confirmación
+                %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                  %span{"aria-hidden" => "true"} ×
+              .modal-body.text-center
+                ¿Está segura de que desea registrarse con esa modalidad de equipo?
+                %br/
+                Más adelante ya no podrá cambiarlo.
+              .modal-footer
+                %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Cancelar
+                %button#aceptarRegistro.btn.btn-info{:type => "button"} Aceptar
+        #modal2.modal.fade.text-dark{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", "data-backdrop" => "static", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog.modal-dialog-centered{:role => "document"}
+            .modal-content
+              .modal-header.mx-auto
+                %h5.modal-title Notificación
+              .modal-body.text-center
+                \.....
+              .modal-footer.justify-content-center
+                %button.btn.btn-info{:type => "button"} Aceptar
 
-  
+
   -# .field
   -#   = f.label :phone
   -#   %br

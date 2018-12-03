@@ -7,7 +7,9 @@
   = csp_meta_tag
   %link{:rel=>"stylesheet", :href=>"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", :integrity=>"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO", :crossorigin=>"anonymous"}
   = stylesheet_link_tag    'application', media: 'all'
+  = stylesheet_link_tag 'registration'
   = javascript_include_tag 'application'
+  = yield :javascript_includes
   %body
     - if current_frida
       %nav.navbar.navbar-expand-lg.navbar-light.bg-light
@@ -18,7 +20,8 @@
           %ul.navbar-nav.ml-auto
             %li.nav-item.dropdown
               %a#navbarDropdownName1.nav-link.dropdown-toggle{:href=>'#', :role=>'button', :data-toggle=>'dropdown', :aria-haspopup=>'true', :aria-expanded=>'false'}
-                = current_frida.name
+                = link_to 'Cerrar sesión', destroy_frida_session_path, method: :delete, :class => 'dropdown-item'
+                -# = current_frida.name
               .dropdown-menu{:aria-labelledby=>'navbarDropdownName1'}
                 = link_to 'Perfil', '#', :class => 'dropdown-item'
                 = link_to 'Avances', '#', :class => 'dropdown-item'
