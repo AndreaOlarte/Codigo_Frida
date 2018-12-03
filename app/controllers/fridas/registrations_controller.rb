@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 class Fridas::RegistrationsController < Devise::RegistrationsController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
+  # before_action :create_new_team, only: :create
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  after_action :set_team, only: [:create]
 
   # GET /resource/sign_up
   # def new
@@ -44,7 +46,9 @@ class Fridas::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :last_name, :birthdate, :school, :phone, :avatar])
+    # @team = Team.create(code: Randomstring.generate(10))
+    # byebug
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :last_name, :birthdate, :school, :phone, :avatar, :team_id]) # .merge(:team_id => @team.id)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -61,4 +65,15 @@ class Fridas::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+  
+  def set_team
+    byebug
+    Frida.last.team_id = Team.last.id
+    byebug
+  end
+
+  def create_new_team
+    @team = Team.create(code: Randomstring.generate(10))
+  end
 end
