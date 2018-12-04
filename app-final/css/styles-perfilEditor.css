@@ -1,0 +1,30 @@
+
+/*MAIN*/
+
+.main{
+    margin-top: 70px;
+}
+
+.user{
+    border-radius: 50%;
+    border: 5px solid #17a2b8;
+}
+
+.data-group{
+    min-height: 100px;
+    margin-bottom: 20px;
+}
+
+.form-group{
+    width: 50%;
+    padding: 20px;
+    margin-bottom: 0;
+}
+
+.titulo{
+    color: #11798A;
+}
+
+#modal2 .modal-body, #modal2 .modal-footer button{
+    font-size: 20px;
+}

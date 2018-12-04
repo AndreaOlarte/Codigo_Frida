@@ -1,0 +1,46 @@
+nav{
+    z-index: 10000;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+}
+
+nav .navbar-brand{
+    width: 100px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav #navbar ul {
+    list-style-type: none;
+}
+
+nav #navbar ul form input{
+    width: 600px;
+}
+
+nav #navbar .dropSesion a{
+    color: #1d2124;
+}
+
+nav #navbar .dropSesion a[class~="nav-link"]{
+    color: #fff;
+}
+
+nav #navbar .dropSesion a[class~="nav-link"]:active{
+    background-color: transparent;
+}
+
+nav #navbar .dropSesion a[class~="active"],
+nav #navbar .dropSesion a:active{
+    color: #fff!important;
+    background-color: #727F8C;
+}
+
+nav #navbar .dropSesion a:not([class~="active"]):hover{
+    background-color: rgb(114,127,140,0.5);
+    color: #fff;
+}
+
+nav #navbar .dropSesion a[class~="nav-link"]:hover{
+    background-color: transparent;
+}

@@ -1,0 +1,47 @@
+@import 'styles-header.css';
+
+/*MAIN*/
+
+.main{
+    margin-top: 70px;
+}
+
+.user{
+    border-radius: 50%;
+    border: 5px solid #17a2b8;
+}
+
+.data-group{
+    min-height: 100px;
+    margin-bottom: 20px;
+}
+
+.data-group .data{
+    width: 50%;
+}
+
+.titulo{
+    color: #11798A;
+}
+
+#editarPerfil:hover{
+    color: #fff!important;
+}
+
+
+/*---Equipo---*/
+.fridas .frida{
+    margin-right: 40px;
+}
+
+.fridas .frida button{
+    padding: 10px;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fridas .frida button img{
+    width: 40px;
+}

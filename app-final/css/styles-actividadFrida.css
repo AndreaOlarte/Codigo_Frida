@@ -1,0 +1,58 @@
+@import 'styles-header.css';
+
+.main{
+    margin-top: 63px;
+    margin-bottom: 60px;
+}
+.main .header-curso{
+    /* background: url("https://previews.123rf.com/images/hilch/hilch1508/hilch150800097/43338126-tecnolog%C3%ADa-mano-empate-integrar-iconos-establecidos-en-el-papel-dibujo-vectorial-colorido-infograf%C3%ADa-ilu.jpg") repeat;
+    background-size: contain; */
+    position: relative;
+    height: 400px;
+    color: #343a40;
+    font-weight: bold;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main .header-curso img{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: -220px;
+    /* filter: blur(3px); */
+    filter: opacity(0.8);
+}
+
+.main .header-curso .nombre-curso{
+    position: absolute;
+    top: 0;
+    margin: 80px 60px;
+}
+
+.seccion-actividad{
+    border: gray solid 1px;
+    border-radius: 5px;
+    height: 200px;
+    font-size: 20px;
+    padding: 0;
+}
+
+.seccion-actividad textarea{
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.infoDescargable a{
+    font-size: 20px;
+}
+
+.titulo{
+    color: #11798A;
+}

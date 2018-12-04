@@ -1,0 +1,54 @@
+@import 'styles-header.css';
+
+.main{
+    margin-top: 100px;
+}
+
+.main .main-curso .seccion-actividad{
+    border: gray solid 1px;
+    border-radius: 5px;
+    padding: 0;
+    height: 200px;
+    font-size: 30px;
+}
+
+.seccion-actividad textarea{
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.main .main-curso .comentarios,
+.main .main-curso .calificacion{
+    width: 50%;
+}
+
+.main .main-curso .comentarios p,
+.main .main-curso .calificacion{
+    font-size: 20px;
+}
+
+.main .main-curso .comentarios textarea{
+    width: 90%;
+    resize: none;
+}
+
+.main .main-curso .calificacion input{
+    height: 50px;
+}
+
+#btnUpload{
+    background-color: transparent;
+    border: none;
+    color: #17a2b8;
+}
+
+#btnUpload:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+

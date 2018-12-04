@@ -1,0 +1,62 @@
+@import 'styles-header.css';
+
+/*MAIN*/
+
+.main{
+    margin-top: 100px;
+}
+
+.main .title{
+    font-size: 30px;
+    color: #17a2b8;
+}
+
+.main .subtitle{
+    font-size: 18px;
+}
+
+.main .containerBtnTeam button{
+    font-size: 20px;
+}
+
+.main .teams{
+    margin: 30px auto;
+    width: 80%;
+}
+
+.main .teams .team{
+    width: 200px;
+    border: 1px solid #727F8C;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px 20px;
+    text-align: center;
+}
+
+.main .teams .team:hover{
+    background-color: #727F8C;
+    cursor: pointer;
+}
+
+.main .teams .team:hover .teamCode,
+.main .teams .team:hover .teamName{
+    color: #fff;
+}
+
+.main .teams .team .teamName{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.main .teams .team .teamCode{
+    font-size: 12px;
+    color: #727F8C;
+    font-style: italic;
+}
+
+
+/*MODAL*/
+#nuevoNombre{
+    width: 70%;
+    margin: 10px auto;
+}

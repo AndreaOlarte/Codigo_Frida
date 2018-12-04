@@ -1,0 +1,48 @@
+@import 'styles-header.css';
+
+.main{
+    margin-top: 100px;
+}
+
+form{
+    width: 90%;
+    margin: 2% 5%;
+}
+
+form .form-group{
+    width: 50%;
+    padding: 20px 20px 10px;
+    margin-bottom: 0;
+}
+
+#nombreEquipo{
+    padding-top: 0;
+}
+
+#inputNombreEquipo,
+#seleccionMentor, 
+#fridasInvitacion select{
+    height: 46px;
+}
+
+.buttonFrida{
+    width: 10%;
+}
+
+#btnOtraFrida{
+    font-size: 20px;
+    font-weight: bold;
+    height: 46px;
+    width: 46px;
+}
+
+@media only screen and (max-width: 768px) {
+    #btnUpload{
+        white-space: normal;
+        font-size: 15px;
+    }
+
+    #agregar{
+        font-size: 18px;
+    }
+}

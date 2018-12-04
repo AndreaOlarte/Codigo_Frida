@@ -1,0 +1,50 @@
+@import 'styles-header.css';
+
+.main{
+    margin-top: 100px;
+}
+
+.title{
+    font-size: 30px;
+    color: #17a2b8;
+}
+
+.subtitle{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.equipo .title{
+    font-size: 19px;
+}
+
+.equipo select{
+    font-size: 17px;
+}
+
+.modulo{
+    width: 100%;
+    border: 1px solid #727F8C;
+    border-radius: 5px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modulo .moduloName{
+    width: 70%;
+    padding-left: 50px;
+    font-size: 25px;
+}
+
+.modulo .moduloCalificacion{
+    width: 30%;
+    padding-right: 30px;
+    padding-left: 50px;
+}
+
+.modulo .moduloCalificacion img{
+    width: 45px;
+}
