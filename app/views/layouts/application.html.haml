@@ -13,7 +13,7 @@
   %body
     - if current_frida
       %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        = link_to 'Código Frida', '#', :class => 'navbar-brand'
+        = link_to 'Código Frida', frida_modules, :class => 'navbar-brand'
         %button.navbar-toggler{:type=>'button', :data-toggle=>'collapse', :data-target=>'#navbarSupportedContent1', :aria-controls=>'navbarSupportedContent', :aria-expanded=>'false', :aria-label=>'Toggle navigation'}
           %span.navbar-toggler-icon
         #navbarSupportedContent1.collapse.navbar-collapse
@@ -24,7 +24,9 @@
                 -# = current_frida.name
               .dropdown-menu{:aria-labelledby=>'navbarDropdownName1'}
                 = link_to 'Perfil', '#', :class => 'dropdown-item'
-                = link_to 'Avances', '#', :class => 'dropdown-item'
+                - unless current_frida.team.nil?
+                  = link_to 'Módulos', frida_modules, :class => 'dropdown-item'
+                  = link_to 'Avances', '#', :class => 'dropdown-item'
                 .dropdown-divider
                 = link_to 'Cerrar sesión', destroy_frida_session_path, method: :delete, :class => 'dropdown-item'
     - elsif current_mentor
@@ -43,5 +45,24 @@
                 = link_to 'Avances', '#', :class => 'dropdown-item'
                 .dropdown-divider
                 = link_to 'Cerrar sesión', destroy_mentor_session_path, method: :delete, :class => 'dropdown-item'
+    - elsif %current_leader
+      %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        = link_to 'Código Frida', teams, :class => 'navbar-brand'
+        %button.navbar-toggler{:type=>'button', :data-toggle=>'collapse', :data-target=>'#navbarSupportedContent2', :aria-controls=>'navbarSupportedContent', :aria-expanded=>'false', :aria-label=>'Toggle navigation'}
+          %span.navbar-toggler-icon
+        #navbarSupportedContent2.collapse.navbar-collapse
+          %ul.navbar-nav.ml-auto
+            %li.nav-item.dropdown
+              %a#navbarDropdownName2.nav-link.dropdown-toggle{:href=>'#', :role=>'button', :data-toggle=>'dropdown', :aria-haspopup=>'true', :aria-expanded=>'false'}
+                = link_to 'Cerrar sesión', destroy_leader_session_path, method: :delete, :class => 'dropdown-item'
+                -# - if current_mentor.name 
+                -#   = current_mentor.name
+              .dropdown-menu{:aria-labelledby=>'navbarDropdownName2'}
+                = link_to 'Equipos', teams, :class => 'dropdown-item'
+                = link_to 'Fridas sin equipo', '#', :class => 'dropdown-item'
+                = link_to 'Actividades', delivers, :class => 'dropdown-item'
+                = link_to 'Avance equipos', '#', :class => 'dropdown-item'
+                .dropdown-divider
+                = link_to 'Cerrar sesión', destroy_leader_session_path, method: :delete, :class => 'dropdown-item'
     .container-fluid
       = yield
