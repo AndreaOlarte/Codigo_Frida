@@ -1,0 +1,85 @@
+%p#notice
+  = notice
+
+%section.main
+.d-flex
+  .title.mr-auto.ml-5 Equipos
+  .containerBtnTeam.mr-5
+    -# %a.btn.btn-outline-info.btn-lg{:href => "agregar-equipo-lider.html"} Agregar Equipo
+    - if current_leader
+      = link_to 'Agregar equipo', new_team_path, :class => 'btn btn-outline-info btn-lg'
+.ml-5
+  -# .subtitle 'Mentor:'
+  -# %select.form-control.w-25
+  -#   %option Todos
+  -#   %option Mentor 1
+  -#   %option Mentor 2
+  -#   %option Mentor 3
+  -#   %option Mentor 4
+  -#   %option Mentor 5
+.teams.d-flex.flex-wrap.justify-content-around
+  - @teams.each do |team|
+    .team
+      .teamName 
+        = team.name
+      .teamCode
+        = team.code
+      = link_to 'Mostrar', team
+      = link_to 'Editar', edit_team_path(team)
+      - if current_leader
+        = link_to 'Eliminar', team, method: :delete, data: { confirm: "¿Está seguro que desea eliminar al equipo #{ team.name }?" }
+
+  -# #teamFriditas.team
+  -#   .teamName Equipo Friditas
+  -#   .teamCode Código del equipo
+  -# #teamFridotas.team
+  -#   .teamName Equipo Fridotas
+  -#   .teamCode Código del equipo
+  -# #teamCAR.team
+  -#   .teamName Equipo CAR
+  -#   .teamCode Código del equipo
+  -# #teamLelele.team
+  -#   .teamName Equipo Lelele
+  -#   .teamCode Código del equipo
+  -# #teamLilili.team
+  -#   .teamName Equipo Lilili
+  -#   .teamCode Código del equipo
+  -# #teamLololo.team
+  -#   .teamName Equipo Lololo
+  -#   .teamCode Código del equipo
+
+-# <table>
+-#   <thead>
+-#     <tr>
+-#       <th>Name</th>
+-#       <th>Id mentor</th>
+-#       <th>Id mentor2</th>
+-#       <th>Code</th>
+-#       <th>Level</th>
+-#       <th>Score</th>
+-#       <th>Image</th>
+-#       <th colspan="3"></th>
+-#     </tr>
+-#   </thead>
+
+-#   <tbody>
+-#     <% @teams.each do |team| %>
+-#       <tr>
+-#         <td><%= team.name %></td>
+-#         <td><%= team.id_mentor %></td>
+-#         <td><%= team.id_mentor2 %></td>
+-#         <td><%= team.code %></td>
+-#         <td><%= team.level %></td>
+-#         <td><%= team.score %></td>
+-#         <td><%= team.image %></td>
+-#         <td><%= link_to 'Show', team %></td>
+-#         <td><%= link_to 'Edit', edit_team_path(team) %></td>
+-#         <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+-#       </tr>
+-#     <% end %>
+-#   </tbody>
+-# </table>
+
+-# <br>
+
+-# <%= link_to 'New Team', new_team_path %>
