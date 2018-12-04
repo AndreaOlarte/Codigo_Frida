@@ -28,9 +28,11 @@ class DeliversController < ApplicationController
 
     respond_to do |format|
       if @deliver.save
-        format.html { redirect_to @deliver, notice: 'Deliver was successfully created.' }
+        format.html { redirect_to frida_modules, notice: 'La actividad se entregó exitosamente.' }
+        # Potentially dangerous line:
         format.json { render :show, status: :created, location: @deliver }
       else
+        # Potentially dangerous lines:
         format.html { render :new }
         format.json { render json: @deliver.errors, status: :unprocessable_entity }
       end
@@ -69,6 +71,6 @@ class DeliversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def deliver_params
-      params.require(:deliver).permit(:id_module, :file, :id_team, :grade)
+      params.require(:deliver).permit(:id_module, :file, :id_team, :grade, :deliver_file)
     end
 end
