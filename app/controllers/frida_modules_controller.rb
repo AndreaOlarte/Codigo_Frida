@@ -10,6 +10,9 @@ class FridaModulesController < ApplicationController
   # GET /frida_modules/1
   # GET /frida_modules/1.json
   def show
+    if current_frida
+      @team = current_frida.team
+      @deliver = Deliver.new
   end
 
   # GET /frida_modules/new

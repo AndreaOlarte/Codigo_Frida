@@ -1,0 +1,96 @@
+%p#notice
+  = notice
+
+%section.main
+.container.mx-auto
+  -# .equipo.mb-3.d-flex.flex-row.justify-content-around
+  -#   %div
+  -#     %h4.titulo Nombre del equipo
+  -#     %p.lead.font-italic Código
+  -#   %div
+  -#     %h5.titulo.d-inline
+  -#       %i.fas.fa-arrow-alt-circle-up
+  -#       Puntos XP:
+  -#     %b 15
+  -#     %br/
+  -#     %h5.titulo.d-inline
+  -#       %i.fas.fa-award
+  -#       Nivel:
+  -#     %b 1
+  .cursos
+    - @frida_modules.each do |frida_module|
+      .card.curso
+        -# %img.card-img-top{:alt => "Card image cap", :height => "150px", :src => "img/curso.jpg"}/
+        = frida_module.image
+        .card-body
+          %h5.card-title
+            = frida_module.name
+          %p.card-text
+            = frida_module.description
+          = link_to 'Mostrar', frida_module
+          - if current_leader
+            = link_to 'Editar', edit_frida_module_path(frida_module)
+            = link_to 'Eliminar', frida_module, method: :delete, data: { confirm: "¿Está seguro que desea eliminar al equipo #{ frida_module.name }?" }
+-#     .card.curso
+-#       %img.card-img-top{:alt => "Card image cap", :height => "150px", :src => "img/curso.jpg"}/
+-#       .card-body
+-#         %h5.card-title
+-#           %a{:href => "pantalla-curso.html"} Uso de Plataforma Google Drive
+-#         %p.card-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos labore corrupti!.
+-#     .card.curso
+-#       %img.card-img-top{:alt => "Card image cap", :height => "150px", :src => "img/curso.jpg"}/
+-#       .card-body
+-#         %h5.card-title Nombre del curso
+-#         %p.card-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos labore corrupti!.
+-#     .card.curso
+-#       %img.card-img-top{:alt => "Card image cap", :height => "150px", :src => "img/curso.jpg"}/
+-#       .card-body
+-#         %h5.card-title Nombre del curso
+-#         %p.card-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos labore corrupti!.
+-#     .card.curso
+-#       %img.card-img-top{:alt => "Card image cap", :height => "150px", :src => "img/curso.jpg"}/
+-#       .card-body
+-#         %h5.card-title Nombre del curso
+-#         %p.card-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos labore corrupti!.
+-#     .card.curso
+-#       %img.card-img-top{:alt => "Card image cap", :height => "150px", :src => "img/curso.jpg"}/
+-#       .card-body
+-#         %h5.card-title Nombre del curso
+-#         %p.card-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos labore corrupti!.
+
+
+-# <h1>Frida Modules</h1>
+
+-# <table>
+-#   <thead>
+-#     <tr>
+-#       <th>Name</th>
+-#       <th>Description</th>
+-#       <th>Video link</th>
+-#       <th>Image</th>
+-#       <th>Content file</th>
+-#       <th>Limit date</th>
+-#       <th colspan="3"></th>
+-#     </tr>
+-#   </thead>
+
+-#   <tbody>
+-#     <% @frida_modules.each do |frida_module| %>
+-#       <tr>
+-#         <td><%= frida_module.name %></td>
+-#         <td><%= frida_module.description %></td>
+-#         <td><%= frida_module.video_link %></td>
+-#         <td><%= frida_module.image %></td>
+-#         <td><%= frida_module.content_file %></td>
+-#         <td><%= frida_module.limit_date %></td>
+-#         <td><%= link_to 'Show', frida_module %></td>
+-#         <td><%= link_to 'Edit', edit_frida_module_path(frida_module) %></td>
+-#         <td><%= link_to 'Destroy', frida_module, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+-#       </tr>
+-#     <% end %>
+-#   </tbody>
+-# </table>
+
+-# <br>
+
+-# <%= link_to 'New Frida Module', new_frida_module_path %>
