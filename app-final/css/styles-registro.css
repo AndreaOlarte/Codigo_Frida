@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.izquierda{
+    padding: 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.izquierda img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
+}
+
+.derecha{
+    width: 100%;
+    display: block;
+    position: absolute;
+    right: 0;
+}
+
+.derecha .container{
+    width: 85%;
+    height: 60%;
+    position: absolute;
+    left: 7.5%;
+    color: #17a2b8;
+}
+
+.derecha .container form{
+    /*margin: 10% 0;*/
+    margin: 2% 0;
+}
+
+.derecha form .form-group{
+    width: 50%;
+    padding: 20px 20px 10px;
+    margin-bottom: 0;
+}
+
+#ingresarCodigo{
+    padding-top: 0;
+    display: block;
+}
+
+#nombreEquipo{
+    padding-top: 0;
+    display: none;
+}
+
+#ingresar{
+    color: #17a2b8;
+}
+
+/*FRIDA EQUIPO*/
+#labelYaTengo{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 15px;
+}
+
+#labelCrear{
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    font-size: 15px;
+}
+
+#labelNoTengo{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-size: 15px;
+}
+
+#yaTengoEquipo:checked ~ #labelYaTengo,
+#crearEquipo:checked ~ #labelCrear,
+#noTengoEquipo:checked ~ #labelNoTengo{
+    background-color: #17a2b8!important;
+    color: #fff!important;
+}
+
+/*#yaTengoEquipo:checked ~ #labelYaTengo*/
+
+@media only screen and (max-width: 1200px) {
+    
+    #labelYaTengo, #labelCrear, #labelNoTengo{
+        border-radius: 0.2rem;
+        white-space: normal;
+        font-size: 15px;
+        border: 1px solid #17a2b8;
+        margin: 5px 10px;
+    }
+    
+    #labelCrear{
+        border-radius: 0.2rem;
+        font-size: 15px;
+    }
+    
+    #labelNoTengo{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #btnUpload{
+        white-space: normal;
+        font-size: 15px;
+    }
+
+    #registrarme{
+        font-size: 18px;
+    }
+}
