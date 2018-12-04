@@ -1,0 +1,80 @@
+.container-fluid
+  .row.main
+    .col-md-3.d-none.d-md-block.izquierda
+      = image_tag("tcm.jpg", :alt => "rss feed")
+      -# %img{:src=>"../../assets/images/tcm.jpg"}
+    .col-md-9.col-sm-12.derecha
+      .container
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'form-registro', class: 'd-flex flex-wrap'}) do |f|
+          = devise_error_messages!
+          .field.form-group.w-50
+            = f.label :name, '* Nombre(s)'
+            = f.text_field :name, placeholder: 'Inserte nombre(s)', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :last_name, '* Apellido(s)'
+            = f.text_field :last_name, placeholder: 'Inserte apellido(s)', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :email, '* Correo electrónico'
+            = f.email_field :email, placeholder: 'Inserte correo electrónico', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :birthdate, '* Fecha de nacimiento'
+            = f.date_field :birthdate, class: 'form-control'
+          .field.form-group.w-50
+            = f.label :password, '* Contraseña'
+            - if @minimum_password_length
+              %em 
+                = "#{@minimum_password_length} characters minimum"
+            = f.password_field :password, placeholder: 'Inserte su contraseña', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :password_confirmation, '* Contraseña'
+            - if @minimum_password_length
+              %em 
+                = "#{@minimum_password_length} characters minimum"
+            = f.password_field :password_confirmation, placeholder: 'Inserte nuevamente la contraseña', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :company, '* Empresa'
+            = f.text_field :company, placeholder: 'Inserte su escuela de procedencia', class: 'form-control'
+          .field.form-group.w-50
+            = f.label :phone, '* Celular'
+            = f.text_field :phone, placeholder: 'Inserte su número de celular', class: 'form-control', id: 'cel'
+          .form-group
+            %label *Área de conocimiento
+            %select.form-control{:id => "", :name => "areaConocimiento"}
+              %option Físico Matemático y Ciencias de la Tierra
+              %option Biología y Química
+              %option Medicina y Ciencias de la salud
+              %option Humanidades y Ciencias de la Conducta
+              %option Sociales y Económico Administrativas
+              %option Biotecnología y Ciencias Agropecuarias
+              %option Ingenierías
+          .field.form-group.w-50.foto
+            = f.label :avatar, '* Foto'
+            %button#btnUpload.btn.btn-outline-info.btn-lg.btn-block{type: 'button'} Selecciona una imagen
+            = f.file_field :avatar, class: "form-control-file text-dark d-none", id: 'imgUpload', accept: '.jpg, .jpeg, .png'
+            %p#archivoSeleccionado.text-dark.mt-2 Ninguna imagen seleccionada
+          .actions.form-group.w-50.ml-auto.pb-0.form-registrar
+            = f.submit 'Registrarme', :id => 'registrarme', :class => 'btn btn-info btn-lg btn-block w-100' #, :data-toggle => 'modal', :data-target => '#modal1'
+
+        #modal1.modal.fade.text-dark{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog.modal-dialog-centered{:role => "document"}
+            .modal-content
+              .modal-header
+                %h5#exampleModalLabel.modal-title Confirmación
+                %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                  %span{"aria-hidden" => "true"} ×
+              .modal-body.text-center
+                ¿Está segura de que desea registrarse con esa modalidad de equipo?
+                %br/
+                Más adelante ya no podrá cambiarlo.
+              .modal-footer
+                %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Cancelar
+                %button#aceptarRegistro.btn.btn-info{:type => "button"} Aceptar
+        #modal2.modal.fade.text-dark{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", "data-backdrop" => "static", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog.modal-dialog-centered{:role => "document"}
+            .modal-content
+              .modal-header.mx-auto
+                %h5.modal-title Notificación
+              .modal-body.text-center
+                \.....
+              .modal-footer.justify-content-center
+                %button.btn.btn-info{:type => "button"} Aceptar
