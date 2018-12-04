@@ -45,7 +45,7 @@
                 = link_to 'Avances', '#', :class => 'dropdown-item'
                 .dropdown-divider
                 = link_to 'Cerrar sesión', destroy_mentor_session_path, method: :delete, :class => 'dropdown-item'
-    - elsif %current_leader
+    - elsif current_leader
       %nav.navbar.navbar-expand-lg.navbar-light.bg-light
         = link_to 'Código Frida', teams, :class => 'navbar-brand'
         %button.navbar-toggler{:type=>'button', :data-toggle=>'collapse', :data-target=>'#navbarSupportedContent2', :aria-controls=>'navbarSupportedContent', :aria-expanded=>'false', :aria-label=>'Toggle navigation'}

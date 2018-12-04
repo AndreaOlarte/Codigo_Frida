@@ -68,9 +68,9 @@ class Fridas::RegistrationsController < Devise::RegistrationsController
   private
   
   def set_team
-    byebug
-    Frida.last.team_id = Team.last.id
-    byebug
+    if(Team.last)
+      Frida.last.team_id = Team.last.id
+    end
   end
 
   def create_new_team

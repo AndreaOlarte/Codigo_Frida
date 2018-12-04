@@ -45,18 +45,18 @@
             %label * Equipo
             %br
             .d-flex.flex-wrap
-              -# .form-check.form-check-inline.m-0
-              -#   %input#yaTengoEquipo.form-check-input.d-none{:checked => "checked", :name => "radioEquipo", :type => "radio", :value => "option1"}/
-              -#   %label#labelYaTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "yaTengoEquipo"}
-              -#     Ya tengo un Equipo
-              -# .form-check.form-check-inline.m-0
-              -#   %input#crearEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option2"}
-              -#   %label#labelCrear.form-check-label.btn.btn-sm.btn-outline-info{:for => "crearEquipo"}
-              -#     Crear Equipo
-              -# .form-check.form-check-inline.m-0
-              -#   %input#noTengoEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option3"}
-              -#   %label#labelNoTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "noTengoEquipo"}
-              -#     No tengo equipo
+            .form-check.form-check-inline.m-0
+              %input#yaTengoEquipo.form-check-input.d-none{:checked => "checked", :name => "radioEquipo", :type => "radio", :value => "option1"}/
+              %label#labelYaTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "yaTengoEquipo"}
+                Ya tengo un Equipo
+            .form-check.form-check-inline.m-0
+              %input#crearEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option2"}
+              %label#labelCrear.form-check-label.btn.btn-sm.btn-outline-info{:for => "crearEquipo"}
+                Crear Equipo
+            .form-check.form-check-inline.m-0
+              %input#noTengoEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option3"}
+              %label#labelNoTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "noTengoEquipo"}
+                No tengo equipo
             #ingresarCodigo.form-group.w-50.w-100.mt-4
               %label Ingresa código del equipo
               %input.form-control{:placeholder => "Inserte código", :type => "text"}

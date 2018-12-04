@@ -19,7 +19,9 @@ class Frida < ApplicationRecord
   private
 
   def set_attribute_to_devise
-    self.team_id = Team.last.id
+    if(Team.last)
+      self.team_id = Team.last.id
+    end
   end
 
   # def create_team
