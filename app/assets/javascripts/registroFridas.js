@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
+    // $('[data-toggle="popover"]').popover(); 
 
     $("input[name='radioEquipo']").change(function(){
         if($(this).val() == 'option1'){

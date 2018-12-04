@@ -1,5 +1,3 @@
-- content_for :javascript_includes do
-  = javascript_include_tag "registroFridas.js"
 .container-fluid
   .row.main
     .col-md-3.d-none.d-md-block.izquierda
@@ -34,36 +32,21 @@
                 = "#{@minimum_password_length} characters minimum"
             = f.password_field :password_confirmation, placeholder: 'Inserte nuevamente la contraseña', class: 'form-control'
           .field.form-group.w-50
-            = f.label :school, '* Escuela / Institución'
-            = f.text_field :school, placeholder: 'Inserte su escuela de procedencia', class: 'form-control'
-          -# .field.form-group.w-50
-          -#   = f.label :phone, '* Celular'
-          -#   = f.telephone_field(:frida, :phone)
-            -# placeholder: 'Inserte su número de celular', class: 'form-control', id: 'cel' ...
-
+            = f.label :company, '* Empresa'
+            = f.text_field :company, placeholder: 'Inserte su escuela de procedencia', class: 'form-control'
           .field.form-group.w-50
-            %label * Equipo
-            %br
-            .d-flex.flex-wrap
-            .form-check.form-check-inline.m-0
-              %input#yaTengoEquipo.form-check-input.d-none{:checked => "checked", :name => "radioEquipo", :type => "radio", :value => "option1"}/
-              %label#labelYaTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "yaTengoEquipo"}
-                Ya tengo un Equipo
-            .form-check.form-check-inline.m-0
-              %input#crearEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option2"}
-              %label#labelCrear.form-check-label.btn.btn-sm.btn-outline-info{:for => "crearEquipo"}
-                Crear Equipo
-            .form-check.form-check-inline.m-0
-              %input#noTengoEquipo.form-check-input.d-none{:name => "radioEquipo", :type => "radio", :value => "option3"}
-              %label#labelNoTengo.form-check-label.btn.btn-sm.btn-outline-info{:for => "noTengoEquipo"}
-                No tengo equipo
-            #ingresarCodigo.form-group.w-50.w-100.mt-4
-              %label Ingresa código del equipo
-              %input.form-control{:placeholder => "Inserte código", :type => "text"}
-            #nombreEquipo.form-group.w-50.w-100.mt-4
-              %label Ingresa el nombre del equipo
-              %input.form-control{:placeholder => "Inserte nombre", :type => "text"}
-
+            = f.label :phone, '* Celular'
+            = f.text_field :phone, placeholder: 'Inserte su número de celular', class: 'form-control', id: 'cel'
+          .form-group
+            %label *Área de conocimiento
+            %select.form-control{:id => "", :name => "areaConocimiento"}
+              %option Físico Matemático y Ciencias de la Tierra
+              %option Biología y Química
+              %option Medicina y Ciencias de la salud
+              %option Humanidades y Ciencias de la Conducta
+              %option Sociales y Económico Administrativas
+              %option Biotecnología y Ciencias Agropecuarias
+              %option Ingenierías
           .field.form-group.w-50.foto
             = f.label :avatar, '* Foto'
             %button#btnUpload.btn.btn-outline-info.btn-lg.btn-block{type: 'button'} Selecciona una imagen
@@ -95,32 +78,3 @@
                 \.....
               .modal-footer.justify-content-center
                 %button.btn.btn-info{:type => "button"} Aceptar
-
-
-  -# .field
-  -#   = f.label :phone
-  -#   %br
-  -#   = f.text_field :phone, autofocus: true, autocomplete: 'phone'
-
-  -# .field
-  -#   = f.label :password
-  -#   - if @minimum_password_length
-  -#     %em 
-  -#       = "#{@minimum_password_length} characters minimum"
-  -#   %br
-  -#   = f.password_field :password, autocomplete: 'new-password'
-
-  -# .field
-  -#   = f.label :password_confirmation
-  -#   %br
-  -#   = f.password_field :password_confirmation, autocomplete: 'new-password'
-  
-  -# .field
-  -#   = f.label :avatar
-  -#   %br
-  -#   = f.file_field :avatar
-
-  -# .actions
-  -#   = f.submit 'Sign up'
-
-      = render 'fridas/shared/links'

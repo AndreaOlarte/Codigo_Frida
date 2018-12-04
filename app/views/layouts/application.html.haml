@@ -45,9 +45,9 @@
                 = link_to 'Avances', '#', :class => 'dropdown-item'
                 .dropdown-divider
                 = link_to 'Cerrar sesión', destroy_mentor_session_path, method: :delete, :class => 'dropdown-item'
-    - elsif %current_leader
+    - elsif current_leader
       %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        = link_to 'Código Frida', teams, :class => 'navbar-brand'
+        = link_to 'Código Frida', :class => 'navbar-brand'
         %button.navbar-toggler{:type=>'button', :data-toggle=>'collapse', :data-target=>'#navbarSupportedContent2', :aria-controls=>'navbarSupportedContent', :aria-expanded=>'false', :aria-label=>'Toggle navigation'}
           %span.navbar-toggler-icon
         #navbarSupportedContent2.collapse.navbar-collapse
@@ -58,10 +58,10 @@
                 -# - if current_mentor.name 
                 -#   = current_mentor.name
               .dropdown-menu{:aria-labelledby=>'navbarDropdownName2'}
-                = link_to 'Equipos', teams, :class => 'dropdown-item'
+                = link_to 'Equipos', :class => 'dropdown-item'
                 = link_to 'Fridas sin equipo', '#', :class => 'dropdown-item'
-                = link_to 'Actividades', delivers, :class => 'dropdown-item'
-                = link_to 'Avance equipos', '#', :class => 'dropdown-item'
+                = link_to 'Actividades', :class => 'dropdown-item'
+                = link_to 'Avance equipos', :class => 'dropdown-item'
                 .dropdown-divider
                 = link_to 'Cerrar sesión', destroy_leader_session_path, method: :delete, :class => 'dropdown-item'
     .container-fluid

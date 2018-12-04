@@ -5,6 +5,7 @@ class Leader < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :feedbacks
+  has_many :teams
 
   has_one_attached :avatar
 end
