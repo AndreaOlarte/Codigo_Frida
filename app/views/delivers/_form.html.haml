@@ -1,0 +1,47 @@
+= form_with(model: deliver, local: true, class: 'd-flex justify-content-end') do |form|
+  - if deliver.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(deliver.errors.count, "error")
+        prohibited this deliver from being saved:
+      %ul
+        - deliver.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.hidden_field :id_module, :value => params[:format]
+    -# = form.number_field :id_module
+  .field.container.seccion-actividad.text-center.mb-5.d-flex.justify-content-center.align-items-center
+    = form.label :deliver_file, class: 'btn btn-outline-info btn-lg'
+    = form.file_field :deliver_file, class: 'd-none', id: 'archUpload', multiple: 'multiple'
+  .field
+    = form.hidden_field :id_team, :value => @team.id
+    -# = form.number_field :id_team
+  -# .field
+  -#   = form.label :grade
+  -#   = form.number_field :grade
+  .actions.container.botones.text-center
+    = form.submit 'Entregar actividad', class: 'btn btn-info btn-lg'
+-#   <div class="field">
+-#     <%= form.label :id_module %>
+-#     <%= form.number_field :id_module %>
+-#   </div>
+
+-#   <div class="field">
+-#     <%= form.label :file %>
+-#     <%= form.text_field :file %>
+-#   </div>
+
+-#   <div class="field">
+-#     <%= form.label :id_team %>
+-#     <%= form.number_field :id_team %>
+-#   </div>
+
+-#   <div class="field">
+-#     <%= form.label :grade %>
+-#     <%= form.number_field :grade %>
+-#   </div>
+
+-#   <div class="actions">
+-#     <%= form.submit %>
+-#   </div>
+-# <% end %>

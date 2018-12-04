@@ -1,0 +1,107 @@
+%p#notice
+  = notice
+
+- if current_frida
+  %section.main
+  .header-curso
+    %img{:alt => "", :src => "https://blog.bannersnack.com/wp-content/uploads/2016/05/heatmap-bannersnack-blog.png"}/
+    -# = @frida_module.image
+    .container.nombre-curso
+      %h1 Módulo 1
+      %p.lead.font-weight-bold Entre problemáticas y los Objetivos de Desarrollo Sostenible.
+  .main-curso.mt-3
+    .container
+      .d-flex.flex-column
+        %iframe.align-self-center{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "505", :src => "https://www.youtube.com/embed/MCKH5xk8X-g", :width => "90%"}
+        .infoDescargable.mt-3
+          %h3.titulo Archivos:
+          -# 
+          %a.mt-4{:download => "", :href => "C:\\Users\\carly\\Documents\\Ingeniería de Software\\7mo Semestre\\Sistemas de Hipermedia\\Semestral\\img\\curso.jpg"} Archivo
+      .container.nombre-curso.mb-auto.mt-5
+        %h1 Actividad No. 1
+        %p.lead
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi veniam eaque,
+          assumenda labore est a veritatis quae iste commodi quibusdam explicabo aliquam!
+          Quae assumenda nemo soluta eius iure ducimus explicabo. Laborum consectetur dolore sit.
+          Sequi aliquid ipsam minima enim qui.
+      %div
+        - hasDelivery = false
+        - @frida_module.delivers.each do |deliver|
+          - if deliver.team == current_frida.team
+              -# - if @frida_module.delivers.nil?
+            -# %form.d-flex.justify-content-end{:action => ""}
+            -#   %label.btn.btn-outline-info.btn-lg{:for => "archUpload"} Elegir archivo(s)
+            -#   %input#archUpload.d-none{:multiple => "multiple", :name => "archUpload", :type => "file"}/
+            -# .container.seccion-actividad.text-center.mb-5.d-flex.justify-content-center.align-items-center
+            -#   %textarea#seccion-actividad.text-center{:cols => "30", :name => "seccion-actividad", :readonly => "readonly", :rows => "10"}
+            -#     :preserve
+            -#     No ha seleccionado ningún archivo
+            -# .container.botones.text-center
+            -#   / <button class="btn btn-outline-danger btn-lg mr-5">Cancelar</button>
+            -#   %button.btn.btn-info.btn-lg Entregar actividad
+            
+            - hasDelivery = true
+            = render :partial => 'delivers/edit', :object => deliver
+            -# = break
+
+            -# = form_with(model: deliver, local: true, class: 'd-flex justify-content-end') do |form|
+            -#   - if deliver.errors.any?
+            -#     #error_explanation
+            -#       %h2
+            -#         = pluralize(deliver.errors.count, "error")
+            -#         prohibited this deliver from being saved:
+            -#         %ul
+            -#           - deliver.errors.full_messages.each do |message|
+            -#             %li= message
+            -#   .field
+            -#     = form.hidden_field :id_module, :value => params[:format]
+            -#     -# = form.number_field :id_module
+            -#   .field.container.seccion-actividad.text-center.mb-5.d-flex.justify-content-center.align-items-center
+            -#     = form.label :deliver_file, class: 'btn btn-outline-info btn-lg'
+            -#     = form.file_field :deliver_file, class: 'd-none', id: 'archUpload', multiple: 'multiple'
+            -#   .field
+            -#     = form.hidden_field :id_team, :value => @team.id
+            -#     -# = form.number_field :id_team
+            -#   -# .field
+            -#   -#   = form.label :grade
+            -#   -#   = form.number_field :grade
+            -#   .actions.container.botones.text-center
+            -#     = form.submit 'Entregar actividad', class: 'btn btn-info btn-lg'
+        - unless hasDelivery
+          = render :partial => 'delivers/new', :object => @deliver
+
+
+
+
+-# <p>
+-#   <strong>Name:</strong>
+-#   <%= @frida_module.name %>
+-# </p>
+
+-# <p>
+-#   <strong>Description:</strong>
+-#   <%= @frida_module.description %>
+-# </p>
+
+-# <p>
+-#   <strong>Video link:</strong>
+-#   <%= @frida_module.video_link %>
+-# </p>
+
+-# <p>
+-#   <strong>Image:</strong>
+-#   <%= @frida_module.image %>
+-# </p>
+
+-# <p>
+-#   <strong>Content file:</strong>
+-#   <%= @frida_module.content_file %>
+-# </p>
+
+-# <p>
+-#   <strong>Limit date:</strong>
+-#   <%= @frida_module.limit_date %>
+-# </p>
+
+-# <%= link_to 'Edit', edit_frida_module_path(@frida_module) %> |
+-# <%= link_to 'Back', frida_modules_path %>
